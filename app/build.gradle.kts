@@ -63,7 +63,19 @@ dependencies {
     implementation(libs.ui.graphics)
     implementation(libs.ui.tooling.preview)
     implementation(libs.material3)
-    implementation("androidx.databinding:baseLibrary:3.2.0-alpha11")
+    implementation(libs.coil.compose)
+    //paging 3
+    implementation(libs.androidx.paging.runtime)
+    implementation(libs.androidx.paging.compose)
+
+    // Retrofit
+    implementation (libs.retrofit)
+    implementation (libs.converter.moshi)
+    implementation (libs.logging.interceptor)
+
+    // Room
+    implementation (libs.androidx.room.ktx)
+    implementation (libs.androidx.room.paging)
 
     implementation(libs.dagger.hilt.android)
     kapt(libs.hilt.android.compiler)
