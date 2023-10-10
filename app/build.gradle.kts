@@ -2,16 +2,16 @@
 plugins {
     alias(libs.plugins.com.android.application)
     alias(libs.plugins.org.jetbrains.kotlin.android)
-    kotlin("kapt")
-    alias(libs.plugins.dagger.hilt.android)
+    alias(libs.plugins.hilt.android.plugin)
+    alias(libs.plugins.devtools.ksp)
 }
 
 android {
-    namespace = "com.example.amadsamplelogin"
+    namespace = "com.example.remotemediatorapp"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.amadsamplelogin"
+        applicationId = "com.example.remotemediatorapp"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
@@ -43,7 +43,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.3"
+        kotlinCompilerExtensionVersion = "1.5.3"
     }
     packaging {
         resources {
@@ -67,19 +67,29 @@ dependencies {
     //paging 3
     implementation(libs.androidx.paging.runtime)
     implementation(libs.androidx.paging.compose)
-    implementation(libs.androidx.hilt.navigation.compose)
+
 
     // Retrofit
-    implementation (libs.retrofit)
-    implementation (libs.converter.moshi)
-    implementation (libs.logging.interceptor)
+    implementation(libs.retrofit)
+    implementation(libs.converter.moshi)
+    implementation(libs.logging.interceptor)
 
     // Room
-    implementation (libs.androidx.room.ktx)
-    implementation (libs.androidx.room.paging)
+    implementation(libs.androidx.room.ktx)
+    implementation(libs.androidx.room.paging)
+    ksp(libs.androidx.room.compiler)
 
-    implementation(libs.dagger.hilt.android)
-    kapt(libs.hilt.android.compiler)
+    implementation( libs.androidx.lifecycle.viewmodel.compose)
+
+
+    implementation(libs.androidx.room.ktx)
+    implementation(libs.androidx.room.runtime)
+
+    implementation(libs.hilt.navigation.compose)
+    implementation(libs.hilt.android)
+//    implementation(libs.hilt.compiler)
+    ksp (libs.hilt.android.compiler)
+//    ksp(libs.hilt.compiler)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
@@ -88,9 +98,4 @@ dependencies {
     androidTestImplementation(libs.ui.test.junit4)
     debugImplementation(libs.ui.tooling)
     debugImplementation(libs.ui.test.manifest)
-}
-
-// Allow references to generated code
-kapt {
-    correctErrorTypes = true
 }
