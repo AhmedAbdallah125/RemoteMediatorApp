@@ -3,14 +3,14 @@ package com.example.remotemediatorapp.data.remote
 import com.example.remotemediatorapp.data.local.BeverageEntity
 import com.example.remotemediatorapp.domain.Beverage
 
-fun BeverageDto.toBeverageEntity(): BeverageEntity {
+fun BeverageDto?.toBeverageEntity(): BeverageEntity {
     return BeverageEntity(
-        id = id,
-        name = name,
-        tagLine = tagLine,
-        description = describtion,
-        firstMadeDate = first_made_date,
-        imageUrl = image_url
+        id = this?.id ?: 4,
+        name = this?.name ?: "",
+        tagLine = this?.tagline ?: "",
+        description = this?.description ?: "",
+        firstMadeDate = this?.first_brewed ?: "",
+        imageUrl = this?.image_url
     )
 }fun BeverageEntity.toBeverage(): Beverage {
     return Beverage(

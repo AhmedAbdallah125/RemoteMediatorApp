@@ -4,8 +4,8 @@ package com.example.remotemediatorapp.data.remote
 data class BeverageDto(
     val id: Int,
     val name: String,
-    val tagLine: String,
-    val describtion: String,
-    val first_made_date: String,
+    val tagline: String,
+    val description: String,
+    val first_brewed: String,
     val image_url: String? = null
 )
