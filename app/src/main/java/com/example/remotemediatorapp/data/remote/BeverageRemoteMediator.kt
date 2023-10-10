@@ -7,6 +7,7 @@ import androidx.paging.RemoteMediator
 import androidx.room.withTransaction
 import com.example.remotemediatorapp.data.local.BeverageDatabase
 import com.example.remotemediatorapp.data.local.BeverageEntity
+import kotlinx.coroutines.delay
 import retrofit2.HttpException
 import java.io.IOException
 
@@ -39,6 +40,7 @@ class BeverageRemoteMediator(
                 }
             }
 
+            delay(2000L)
             // request from api
             val beverages =
                 beverageApi.getBeverages(page = loadKey, pageCount = state.config.pageSize)

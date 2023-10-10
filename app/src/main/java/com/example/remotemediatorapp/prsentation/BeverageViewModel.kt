@@ -7,9 +7,11 @@ import com.example.remotemediatorapp.data.local.BeverageEntity
 import com.example.remotemediatorapp.data.remote.toBeverage
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.map
+import javax.inject.Inject
+
 @HiltViewModel
-class BeverageViewModel(
-    pager: Pager<Int, BeverageEntity>
+class BeverageViewModel @Inject constructor(
+     pager: Pager<Int, BeverageEntity>
 ) : ViewModel() {
 
     val beverageFlow = pager
